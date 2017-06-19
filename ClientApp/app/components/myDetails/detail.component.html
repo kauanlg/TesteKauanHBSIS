@@ -1,0 +1,40 @@
+<div class="row margin-top-05">
+    <h1>Adicionar / Editar</h1>
+</div>
+<div class="margin-top-05">
+
+    <div class="row margin-top-05">
+        <div class="col-xs-2"><strong> Nome : </strong></div>
+        <div class="col-xs-6"><input [(ngModel)]="detail.nome" required /> </div>
+    </div>
+    <div class="row margin-top-05">
+        <div class="col-xs-2"><strong> CPF/CNPJ : </strong></div>
+        <div class="col-xs-6"><input [(ngModel)]="detail.identificador" required /> </div>
+    
+    </div>
+    <div class="row margin-top-05">
+        <div class="col-xs-2"><strong> Telefone : </strong></div>
+        <div class="col-xs-6"><input [(ngModel)]="detail.telefone" required /> </div>
+    </div>
+    <div class="row margin-top-05">
+        <div class="col-xs-2"><strong> Tipo : </strong></div>
+        <div class="col-xs-3" >
+            <select class="form-control" name="TipoClientes" id="TipoCliente" [(ngModel)]="detail.tipoClienteId" >
+                <option value="0">---Selecione---</option>
+                <option *ngFor="let data of tipoClientes" [ngValue]="data.tipoClienteId" >
+                    {{data.nome}} 
+                </option>
+            </select>
+        </div>
+        </div>
+        <div class="row margin-top-05">
+            <div class="col-xs-12">
+                <button class="btn btn-primary" (click)="save()">
+                    <span class="glyphicon glyphicon-saved"></span> Salvar
+                </button>
+                <button class="btn btn-primary" (click)="list()">
+                    <span class="glyphicon glyphicon-list"></span> Listar
+                </button>
+            </div>
+        </div>
+    </div>

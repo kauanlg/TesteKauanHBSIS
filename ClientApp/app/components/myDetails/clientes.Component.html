@@ -1,0 +1,40 @@
+<h1>
+    Clientes
+</h1>
+
+<p *ngIf="!clientes"><em>Loading...</em></p>
+
+<table class='table' *ngIf="clientes">
+    <thead>
+        <tr>
+            <td colspan="7">
+                <button class="btn btn-primary" [routerLink]="['/detail/0']">
+                    <span class="glyphicon glyphicon-pencil paddingRight"></span> Cadastrar
+                </button>
+            </td>
+        </tr>
+        <tr>
+            <th>Id</th>
+            <th>Nome</th>
+            <th>CPF/CNPJ</th>
+            <th>Telefone</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let cliente of clientes">
+            <td>{{ cliente.clienteId }}</td>
+            <td>{{ cliente.nome }}</td>
+            <td>{{ cliente.identificador }}</td>
+            <td>{{ cliente.telefone }}</td>
+            <td>
+                <button class="btn btn-primary" [routerLink]="['/detail/' + cliente.clienteId]">
+                    <span class="glyphicon glyphicon-pencil paddingRight"></span> Editar
+                </button>
+                <button class="btn btn-primary" (click)="onDelete(cliente.clienteId)">
+                    <span class="glyphicon glyphicon-remove"></span> Deletar
+                </button>
+            </td>
+        </tr>
+    </tbody>
+</table>
